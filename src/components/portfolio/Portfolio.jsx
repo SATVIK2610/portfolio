@@ -30,7 +30,7 @@ const items = [
         title: "Shopper",
         img: "./shopper.png",
         desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque fuga rem aperiam repellendus assumenda quibusdam excepturi! Vel fuga quas inventore consectetur adipisci dolorum ullam dignissimos, repellat molestiae officiis, ut distinctio!",
-        link: ""
+        link: "https://fashion-hub-axzw.vercel.app/"
     }
 ];
 
