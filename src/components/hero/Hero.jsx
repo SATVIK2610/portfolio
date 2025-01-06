@@ -151,7 +151,7 @@ const Hero = ({ contactRef, portfolioRef }) => {
                 initial="initial"
                 animate="animate"
             >
-                Writer Content Creator Influencer
+                MERN Stack Developer
             </motion.div>
             <div className="imageContainer">
                 <img src="/profile.png" alt="" />
