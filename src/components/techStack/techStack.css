@@ -12,33 +12,6 @@
     cursor: pointer;
     width: 95vw;
     height: 200px;
-}
-
-.stack{
-    background-color: "#0c0c1d";
-    color: #ffffff;
-    padding: 50px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-star;
-} */
-
-.skill-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 70px;
-    padding-right: 70px;
-    border-radius: 8px;
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-    width: 95vw;
-    height: 200px;
     justify-content: space-between;
 }
 
@@ -128,5 +101,154 @@
     .skill-item img {
         width: 50px;
         height: 50px;
+    }
+} */
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 70px;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    width: 95vw;
+    height: 200px;
+    justify-content: space-between;
+}
+
+.stack {
+    background-color: #0c0c1d;
+    color: #ffffff;
+    padding: 50px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.skill-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.skill-item h2 {
+    color: inherit;
+    font-size: 24px;
+    text-align: left; /* Align title to the left */
+    font-weight: bold;
+}
+
+.skill-item p {
+    color: #999;
+    font-size: 16px;
+    text-align: left; /* Align subtitle to the left */
+}
+
+.skill-item img {
+    width: 50px; /* Reduced icon size */
+    height: 50px; 
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.skill-item img:hover {
+    transform: scale(1.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .stack {
+        padding: 20px;
+        height: auto;
+        align-items: center; /* Align stack center for smaller screens */
+    }
+
+    .skill-item {
+        flex-direction: column;
+        padding: 15px;
+        width: 90vw; /* Reduced width for mobile */
+        height: auto; /* Allow item to adjust height as needed */
+        /* margin-top: 100px; */
+    }
+
+    .skill-item h2 {
+        font-size: 20px;
+        text-align: left; /* Keep left-alignment for mobile */
+    }
+
+    .skill-item p {
+        font-size: 14px;
+        text-align: left; /* Keep left-alignment for mobile */
+    }
+
+    .skill-item img {
+        width: 40px; /* Smaller icons for mobile */
+        height: 40px;
+    }
+}
+
+/* Further adjustments for very small screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .stack {
+        padding: 150px;
+        margin-top: 200px;
+    }
+
+    .skill-item {
+        flex-direction: column;
+        padding: 12px;
+        width: 85vw; /* Reduced width even more */
+    }
+
+    .skill-item h2 {
+        font-size: 18px;
+    }
+
+    .skill-item p {
+        font-size: 12px;
+    }
+}
+
+/* Responsive title font size */
+.responsive-title {
+    font-size: 50px;  /* Default font size */
+
+    /* For screens smaller than 768px (tablets and small screens) */
+    @media (max-width: 768px) {
+        font-size: 40px;  /* Adjust font size for tablets */
+    }
+
+    /* For screens smaller than 480px (mobiles) */
+    @media (max-width: 480px) {
+        font-size: 40px;  /* Adjust font size for mobile */
+    }
+}
+
+.skill-item img {
+    width: 80px; /* Default icon size */
+    height: 80px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.skill-item img:hover {
+    transform: scale(1.1) !important; /* Increase size by 10% */
+    transition: transform 0.3s ease !important;
+
+}
+
+@media (max-width: 768px) {
+    .skill-item img {
+        width: 60px; /* Icon size for tablets */
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-item img {
+        width: 40px; /* Icon size for mobile */
+        height: 40px;
     }
 }

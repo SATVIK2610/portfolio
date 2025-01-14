@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import emailjs from '@emailjs/browser';
 import { toast } from 'react-hot-toast';
+import { FiExternalLink } from 'react-icons/fi';
 import './contact.scss'
 
 const variants = {
@@ -20,7 +21,6 @@ const variants = {
 };
 
 const Contact = () => {
-
     const ref = useRef();
     const formRef = useRef();
     const isInView = useInView(ref, { magin: "-100px" });
@@ -50,12 +50,11 @@ const Contact = () => {
             );
     };
 
-
     return (
         <motion.div ref={ref} className='contact' variants={variants} initial="initial" whileInView="animate">
             <motion.div className="textContainer" variants={variants}>
                 <motion.h1 variants={variants}>Let's work together</motion.h1>
-                <motion.div variants={variants} className="item">
+                <motion.div variants={variants} className="item mail">
                     <h2>Mail</h2>
                     <span>satviksaini2610@gmail.com</span>
                 </motion.div>
@@ -68,12 +67,18 @@ const Contact = () => {
                     <span>+91 8076112523</span>
                 </motion.div>
                 <motion.div variants={variants} className="item">
-                    <button className='resume'><a href="./resume.pdf" download="Satvik_Saini_Resume.pdf">Download Resume</a></button>
+                    <button 
+                        className="resume"
+                        onClick={() => window.open("https://drive.google.com/file/d/1bhAEzmklkhgBgUqc3oaq9jl289X9fWuS/view?usp=sharing", "_blank")}
+                    >
+                        <FiExternalLink className="icon" />
+                        View Resume
+                    </button>
                 </motion.div>
             </motion.div>
             <div className="formContainer">
                 <motion.div className="phoneSvg" initial={{ opacity: 1 }} whileInView={{ opacity: 0 }} transition={{ delay: 2, duration: 0.5 }}>
-                    <svg width="450px" height="450px" viewBox="0 0 32.666 32.666" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 32.666 32.666" xmlns="http://www.w3.org/2000/svg">
                         <motion.path
                             d="M13.5 2C13.5 2 15.8335 2.21213 18.8033 5.18198C21.7731 8.15183 21.9853 10.4853 21.9853 10.4853"
                             stroke="#FFA500"

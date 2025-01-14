@@ -15,21 +15,21 @@ const items = [
         id: 2,
         title: "Car Rental",
         img: "./car-rental.png",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque fuga rem aperiam repellendus assumenda quibusdam excepturi! Vel fuga quas inventore consectetur adipisci dolorum ullam dignissimos, repellat molestiae officiis, ut distinctio!",
+        desc: "A user-friendly Car Rental Service website for seamless vehicle booking. It offers a wide range of cars, flexible rental durations, and competitive rates, ensuring a smooth and convenient experience.",
         link: "https://car-rental-eosin-six.vercel.app/"
     },
     {
         id: 3,
         title: "Globe Trekker",
         img: "./globeTrekker.png",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque fuga rem aperiam repellendus assumenda quibusdam excepturi! Vel fuga quas inventore consectetur adipisci dolorum ullam dignissimos, repellat molestiae officiis, ut distinctio!",
+        desc: "GlobeTrekker is a travel assistant app powered by Google Maps and APIs, providing detailed insights on places, restaurants, hotels, and attractions. It features place searches, and filtering for an enhanced experience.",
         link: ""
     },
     {
         id: 4,
         title: "Shopper",
         img: "./shopper.png",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque fuga rem aperiam repellendus assumenda quibusdam excepturi! Vel fuga quas inventore consectetur adipisci dolorum ullam dignissimos, repellat molestiae officiis, ut distinctio!",
+        desc: "Shopper is a comprehensive e-commerce platform offering a wide range of fashion products for men, women, and children. Users can browse through various categories, add items to their cart, and make secure purchases.",
         link: "https://fashion-hub-axzw.vercel.app/"
     }
 ];

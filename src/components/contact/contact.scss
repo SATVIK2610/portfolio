@@ -1,6 +1,114 @@
 @import '../../app.scss';
 
-.contact{
+// .contact{
+//     height: 100%;
+//     max-width: 1366px;
+//     margin: auto;
+//     display: flex;
+//     align-items: center;
+//     gap: 50px;
+
+//     @include mobile{
+//         width: 100%;
+//         padding: 10px;
+//         flex-direction: column;
+//     }
+
+//     .textContainer{
+//         flex: 1;
+//         display: flex;
+//         flex-direction: column;
+//         gap: 40px;
+//         // margin-left: 50px;
+
+//         @include mobile{
+//             gap: 20px;
+//             text-align: center;
+//             align-items: center;
+//             margin-top: 70px;
+//         }
+
+//         h1{
+//             font-size: 100px;
+//             line-height: 88px;
+
+//             @include mobile{
+//                 font-size: 36px;
+//             }
+//         }
+
+//         span{
+//             font-size: 300;
+//         }
+
+//         .resume{
+//             border: 1.5px solid orange;
+//             background-color: transparent;
+//             color: white;
+//             border-radius: 10px;
+//             padding: 10px;
+//             font-size: large;
+//             cursor: pointer;
+//         }
+
+//         .icon{
+//             margin-right: 5px;
+//             margin-top: 2px;
+//         }
+
+//         // .resume:hover{
+//         //     background-color: rgba(255, 166, 0, 0.479)
+//         // }
+//     }
+//     .formContainer{
+//         flex: 1; 
+//         position: relative;
+        
+//         @include mobile{
+//             width: 100%;
+//             padding: 50px;
+//         }
+
+//         .phoneSvg{
+//             stroke: orange;
+//             position: absolute;
+//             margin: auto;
+//             z-index: -1;
+//         }
+        
+//         form{
+//             display: flex;
+//             flex-direction: column;
+//             gap: 20px;
+    
+//             input,textarea{
+//                 padding: 20px;
+//                 background-color: transparent;
+//                 border: 1px solid white;
+//                 border-radius: 5px;
+//                 color: white;
+
+//                 @include mobile{
+//                     padding: 10px;
+//                 }
+//             }
+
+//             button{
+//                 padding: 20px;
+//                 border: none;
+//                 cursor: pointer;
+//                 background-color: orange;
+//                 border-radius: 10px;
+
+//                 @include mobile{
+//                     padding: 10px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+.contact {
     height: 100%;
     max-width: 1366px;
     margin: auto;
@@ -8,92 +116,111 @@
     align-items: center;
     gap: 50px;
 
-    @include mobile{
+    @include mobile {
         width: 100%;
         padding: 10px;
         flex-direction: column;
     }
 
-    .textContainer{
+    .textContainer {
         flex: 1;
         display: flex;
         flex-direction: column;
         gap: 40px;
-        // margin-left: 50px;
 
-        @include mobile{
+        @include mobile {
             gap: 20px;
             text-align: center;
             align-items: center;
-            margin-top: 70px;
-        }
+            margin-top: 75px;
 
-        h1{
-            font-size: 100px;
-            line-height: 88px;
-
-            @include mobile{
-                font-size: 36px;
+            .mail{
+                margin-top: -30px;
             }
         }
 
-        span{
+        h1 {
+            font-size: 100px;
+            line-height: 88px;
+
+            @include mobile {
+                font-size: 36px;
+                padding-top: 30px;
+            }
+        }
+
+        span {
             font-size: 300;
         }
 
-        .resume{
+        .resume {
             border: 1.5px solid orange;
             background-color: transparent;
             color: white;
             border-radius: 10px;
             padding: 10px;
             font-size: large;
+            cursor: pointer;
+            display: flex;
         }
 
-        // .resume:hover{
-        //     background-color: rgba(255, 166, 0, 0.479)
-        // }
+        .icon {
+            margin-right: 5px;
+            margin-top: 2px;
+        }
     }
-    .formContainer{
-        flex: 1; 
+
+    .formContainer {
+        flex: 1;
         position: relative;
-        
-        @include mobile{
+
+        @include mobile {
             width: 100%;
             padding: 50px;
+            margin-top: -70px;
         }
 
-        .phoneSvg{
+        .phoneSvg {
             stroke: orange;
             position: absolute;
             margin: auto;
             z-index: -1;
+            width: 450px;  /* Default size for desktop */
+            height: 450px;  /* Default size for desktop */
+
+            @include mobile {
+                width: 250px;  /* Reduced size for mobile */
+                height: 250px;  /* Reduced size for mobile */
+                margin-left: 30px;
+            }
         }
-        
-        form{
+
+        form {
             display: flex;
             flex-direction: column;
             gap: 20px;
-    
-            input,textarea{
+
+            input,
+            textarea {
                 padding: 20px;
                 background-color: transparent;
                 border: 1px solid white;
                 border-radius: 5px;
                 color: white;
 
-                @include mobile{
+                @include mobile {
                     padding: 10px;
                 }
             }
 
-            button{
+            button {
                 padding: 20px;
                 border: none;
                 cursor: pointer;
                 background-color: orange;
+                border-radius: 10px;
 
-                @include mobile{
+                @include mobile {
                     padding: 10px;
                 }
             }

@@ -1,6 +1,6 @@
 @import '../../app.scss';
 
-.parallax{
+.parallax {
     width: 100%;
     height: 100%;
     position: relative;
@@ -9,16 +9,16 @@
     justify-content: center;
     overflow: hidden;
 
-    h1{
+    h1 {
         font-size: 100px;
-
-        @include mobile{
+        
+        @include mobile {
             font-size: 72px;
             text-align: center;
         }
     }
 
-    .mountains{
+    .mountains {
         background-image: url("/mountains.png");
         background-size: cover;
         background-position: bottom;
@@ -27,13 +27,15 @@
         position: absolute;
         z-index: 3;
 
-        @include mobile{
-            background-size: contain;
+        @include mobile {
+            background-size: cover; /* Use cover for better scaling on mobile */
             background-repeat: no-repeat;
+            height: 300px;
+            margin-top: calc(100vh - 350px);
         }
     }
     
-    .planets{
+    .planets {
         background-image: url("/planets.png");
         background-size: cover;
         background-position: bottom;
@@ -42,13 +44,15 @@
         position: absolute;
         z-index: 2;
 
-        @include mobile{
-            background-size: contain;
+        @include mobile {
+            background-size: cover; /* Use cover for better scaling on mobile */
             background-repeat: no-repeat;
+            height: 300px;
+            margin-top: 400px;
         }
     }
     
-    .stars{
+    .stars {
         background-image: url("/stars.png");
         background-size: cover;
         background-position: bottom;
@@ -57,8 +61,8 @@
         position: absolute;
         z-index: 1;
 
-        @include mobile{
-            background-size: contain;
+        @include mobile {
+            background-size: cover; /* Use cover for better scaling on mobile */
             background-repeat: no-repeat;
         }
     }
