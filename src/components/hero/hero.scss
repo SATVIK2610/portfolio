@@ -1,105 +1,3 @@
-// @import '../../app.scss';
-
-// .hero {
-//     height: calc(100vh - 100px);
-//     overflow: hidden;
-//     background: linear-gradient(180deg, #0c0c1d, #111132);
-//     position: relative;
-
-//     .wrapper {
-//         max-width: 1366px;
-//         height: 100%;
-//         margin: auto;
-//         position: relative; // Ensure proper stacking context
-
-//         .textContainer {
-//             width: 50%;
-//             height: 100%;
-//             display: flex;
-//             flex-direction: column;
-//             justify-content: center;
-//             gap: 40px;
-//             z-index: 2; // Ensure textContainer is above slidingTextContainer
-
-//             @include mobile {
-//                 width: 100%;
-//                 height: 50%;
-//                 gap: 20px;
-//                 align-items: center;
-//                 text-align: center;
-//             }
-//         }
-
-//         h2 {
-//             font-size: 40px;
-//             color: rebeccapurple;
-//             letter-spacing: 10px;
-//         }
-
-//         h1 {
-//             font-size: 88px;
-
-//             @include mobile {
-//                 font-size: 36px;
-//             }
-//         }
-
-//         .buttons {
-//             display: flex;
-//             gap: 20px;
-
-//             button {
-//                 padding: 20px;
-//                 border: 1px solid white;
-//                 border-radius: 10px;
-//                 background-color: transparent;
-//                 color: white;
-//                 font-weight: 300;
-//                 cursor: pointer;
-//                 z-index: 3; // Ensure buttons are clickable
-//                 position: relative; // For z-index to work
-//             }
-//         }
-
-//         img {
-//             width: 50px;
-//         }
-//     }
-
-//     .imageContainer {
-//         height: 100%;
-//         position: absolute;
-//         top: 0;
-//         right: 0;
-
-//         @include mobile {
-//             width: 100%;
-//             height: 50%;
-//             top: unset;
-//             bottom: 0;
-//         }
-
-//         img {
-//             width: 400px;
-//             margin-top: 100px;
-//             scale: 400%;
-//             margin-right: 450px;
-//         }
-//     }
-
-//     .slidingTextContainer {
-//         position: absolute;
-//         font-size: 50vh;
-//         bottom: -120px;
-//         white-space: nowrap;
-//         color: #ffffff09;
-//         width: 50%;
-//         font-weight: bold;
-//         z-index: 1; // Ensure it's below buttons and textContainer
-//         pointer-events: none; // Prevent interactions
-//     }
-// }
-
 @import '../../app.scss';
 
 .hero {
@@ -112,8 +10,10 @@
         max-width: 1366px;
         height: 100%;
         margin: auto;
-        position: relative; // Ensure proper stacking context
-        padding: 0 20px; // Added padding for mobile
+        position: relative;
+        padding: 0 5%; /* Use percentage for side padding */
+        display: flex; /* Use flex for better layout control */
+        align-items: center;
 
         .textContainer {
             width: 50%;
@@ -121,93 +21,113 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 40px;
-            z-index: 2; // Ensure textContainer is above slidingTextContainer
+            gap: 4vh; /* Use vh units for vertical spacing */
+            z-index: 2;
+
+            @include tablet {
+                width: 60%;
+                gap: 3vh;
+                padding-top: 0;
+            }
 
             @include mobile {
                 width: 100%;
                 height: 50%;
-                gap: 20px;
+                gap: 2vh;
                 align-items: center;
                 text-align: center;
+                padding-top: 10vh; /* Move textContainer up on mobile */
+                margin-bottom: 5vh;
+                justify-content: flex-start; /* Align to top instead of center */
             }
         }
 
         h2 {
-            font-size: 40px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem); /* Responsive font size */
             color: rebeccapurple;
-            letter-spacing: 10px;
+            letter-spacing: 0.5vw; /* Responsive letter spacing */
 
             @include mobile {
-                font-size: 30px; // Adjust font size for smaller screens
-                letter-spacing: 5px; // Reduce letter spacing
+                letter-spacing: 0.3vw;
+                margin-top: 2vh;
             }
         }
 
         h1 {
-            font-size: 88px;
+            font-size: clamp(2.5rem, 6vw, 5.5rem); /* Responsive font size */
 
             @include mobile {
-                font-size: 36px;
+                font-size: clamp(2rem, 5vw, 2.5rem);
             }
         }
 
         .buttons {
             display: flex;
-            gap: 20px;
+            gap: 1.5vw; /* Use vw for horizontal spacing */
+
+            @include mobile {
+                gap: 3vw;
+                flex-wrap: wrap; /* Allow buttons to wrap on very small screens */
+                justify-content: center;
+            }
 
             button {
-                padding: 20px;
+                padding: clamp(0.8rem, 1.5vw, 1.25rem); /* Responsive padding */
                 border: 1px solid white;
                 border-radius: 10px;
                 background-color: transparent;
                 color: white;
                 font-weight: 300;
                 cursor: pointer;
-                z-index: 3; // Ensure buttons are clickable
-                position: relative; // For z-index to work
+                z-index: 3;
+                position: relative;
+                font-size: clamp(0.8rem, 1vw, 1rem); /* Responsive font size */
+                transition: all 0.3s ease; /* Smooth transition for hover effects */
 
-                @include mobile {
-                    padding: 15px; // Smaller padding on mobile
-                    font-size: 14px; // Adjust font size for smaller screens
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
                 }
             }
         }
 
         img {
-            width: 50px;
-
-            @include mobile {
-                width: 30px; // Smaller image on mobile
-            }
+            width: 3vw; /* Use vw for responsive image sizing */
+            max-width: 50px;
+            min-width: 30px;
         }
     }
 
     .imageContainer {
-        height: 100%;
+        height: 80%;
         position: absolute;
-        top: 0;
+        top: 150px;
         right: 0;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
 
         @include mobile {
             width: 100%;
-            height: 50%;
-            top: unset;
-            bottom: 0;
-            margin-right: 0; // Remove right margin on mobile
+            height: 70%;
+            margin-right: -10vw;
+            margin-top: 10vh;
+            transform: scale(1.5);
         }
 
         img {
-            width: 400px;
-            margin-top: 100px;
-            scale: 400%;
-            margin-right: 450px;
+            width: 12vw;
+            max-width: 220px;
+            margin-top: 10vh;
+            transform: scale(3.2); /* Reduced from 4 to make image smaller */
+
+            // @include tablet {
+            //     transform: scale(2.8); /* Smaller for tablet */
+            // }
 
             @include mobile {
-                width: 250px; // Slightly bigger image on mobile
-                margin-top: 210px; // Move the image slightly below the buttons
-                scale: 390%; // Adjust scale on mobile
-                padding-right: 35px;
+                width: 27vw;
+                margin-top: 20vh;
             }
         }
     }
@@ -220,34 +140,106 @@
         color: #ffffff09;
         width: 50%;
         font-weight: bold;
-        z-index: 1; // Ensure it's below buttons and textContainer
-        pointer-events: none; // Prevent interactions
+        z-index: 1;
+        pointer-events: none;
+
+        @include tablet {
+            font-size: 40vh;
+            bottom: -90px;
+        }
 
         @include mobile {
-            font-size: 30vh; // Adjust sliding text size for mobile
-            width: 100%; // Make it take full width on mobile
-            bottom: -70px; // Adjust position on mobile
+            font-size: 30vh;
+            width: 100%;
+            bottom: -70px;
         }
     }
+}
 
-    // Media query for screens <= 950px
-    @media (max-width: 950px) {
+/* Add responsive media queries for specific screen sizes */
+@media (max-width: 950px) {
+    .hero {
+        .wrapper {
+            .textContainer {
+                padding-top: 5vh;
+            }
+        }
+        
         .imageContainer {
-            top: 50%; // Move the image down when screen width <= 950px
-            transform: translateY(-50%); // Center the image vertically
-        }
-
-        img {
-            margin-top: 0; // Remove margin-top for centered image
-            margin-right: 0; // Adjust margin-right to fit image in the center
+            img {
+                margin-top: 15vh;
+                margin-right: 10vw;
+            }
         }
     }
+}
 
-    // Additional mobile adjustments for images
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
+    .hero {
+        .wrapper {
+            .textContainer {
+                padding-top: 8vh;
+                justify-content: flex-start;
+                height: 40%; /* Reduce height to move text higher */
+                position: relative;
+                top: -25vh; /* Move text container up */
+            }
+        }
+        
         .imageContainer {
-            top: unset;
-            bottom: 10px; // Keep the image slightly below the buttons
+            height: 60%; /* Give more height to image container */
+            img {
+                margin-top: 18vh;
+                transform: scale(2.2) !important; /* Smaller image on mobile */
+            }
         }
     }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        .wrapper {
+            .textContainer {
+                height: 35%; /* Even less height on very small screens */
+                padding-top: 4vh; /* Less top padding since we're using top positioning */
+                top: -25vh; /* Same as 768px breakpoint */
+            }
+        }
+        .imageContainer {
+            height: 65%;
+            img {
+                transform: scale(1.8) !important; /* Even smaller on smallest screens */
+                max-width: 160px;
+            }
+        }
+    }
+}
+
+.name-text {
+  position: relative;
+  background-image: linear-gradient(
+    90deg,
+    #A66DD4 0%,
+    #44C0F3 25%,
+    #6BD1BE 50%,
+    #FFA500 75%,
+    #A66DD4 100%
+  );
+  background-size: 200% auto;
+  color: transparent !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.gradient-text {
+  animation: gradient-shift 8s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }

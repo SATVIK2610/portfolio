@@ -2,7 +2,7 @@
 
 .parallax {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -10,60 +10,88 @@
     overflow: hidden;
 
     h1 {
-        font-size: 100px;
+        font-size: clamp(3rem, 8vw, 6.25rem);
+        text-align: center;
+        z-index: 4;
+        color: white;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        position: relative;
+        
+        @include tablet {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+        }
         
         @include mobile {
-            font-size: 72px;
-            text-align: center;
+            font-size: clamp(2rem, 10vw, 4.5rem);
+            padding: 0 5%;
         }
     }
 
     .mountains {
-        background-image: url("/mountains.png");
+        background-image: url("/parallax/mountains.png");
         background-size: cover;
         background-position: bottom;
         width: 100%;
         height: 100%;
         position: absolute;
+        top: 0;
+        left: 0;
         z-index: 3;
 
+        @include tablet {
+            height: 100%;
+            bottom: 0;
+        }
+
         @include mobile {
-            background-size: cover; /* Use cover for better scaling on mobile */
+            background-size: cover;
             background-repeat: no-repeat;
-            height: 300px;
-            margin-top: calc(100vh - 350px);
+            height: 100%;
         }
     }
     
     .planets {
-        background-image: url("/planets.png");
+        background-image: url("/parallax/planets.png");
         background-size: cover;
         background-position: bottom;
         width: 100%;
         height: 100%;
         position: absolute;
+        top: 0;
+        left: 0;
         z-index: 2;
 
+        @include tablet {
+            background-size: cover;
+            height: 100%;
+        }
+
         @include mobile {
-            background-size: cover; /* Use cover for better scaling on mobile */
+            background-size: cover;
             background-repeat: no-repeat;
-            height: 300px;
-            margin-top: 400px;
+            height: 100%;
         }
     }
     
     .stars {
-        background-image: url("/stars.png");
+        background-image: url("/parallax/stars.png");
         background-size: cover;
         background-position: bottom;
         width: 100%;
         height: 100%;
         position: absolute;
+        top: 0;
+        left: 0;
         z-index: 1;
 
+        @include tablet {
+            height: 100%;
+        }
+
         @include mobile {
-            background-size: cover; /* Use cover for better scaling on mobile */
+            background-size: cover;
             background-repeat: no-repeat;
+            height: 100%;
         }
     }
 }

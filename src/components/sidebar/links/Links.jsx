@@ -27,11 +27,25 @@ const itemVariants = {
 
 const items = ["Home","Services","Portfolio","Contact"];
 
-const Links = () => {
+const Links = ({ setOpen }) => {
+    const handleLinkClick = () => {
+        // Close the sidebar when link is clicked
+        setOpen(false);
+    };
+
     return (
         <motion.div className='links' variants={variants}>
             {items.map(item => (
-                <motion.a href={`#${item}`} key={item} variants={itemVariants} whileHover={{scale:1.1}} whileTap={{scale:0.95}}>{item}</motion.a>
+                <motion.a 
+                    href={`#${item}`} 
+                    key={item} 
+                    variants={itemVariants} 
+                    whileHover={{scale:1.1}} 
+                    whileTap={{scale:0.95}}
+                    onClick={handleLinkClick}
+                >
+                    {item}
+                </motion.a>
             ))}
         </motion.div>
     )

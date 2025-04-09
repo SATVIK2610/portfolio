@@ -61,7 +61,6 @@ const Navbar = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    {/* Add content here if needed */}
                 </motion.span>
                 <motion.div
                     className="social"
@@ -72,25 +71,29 @@ const Navbar = () => {
                     <motion.a
                         href="https://www.linkedin.com/in/satvik-saini-5a9515254/"
                         target="_blank"
-                        id="linkedin"
+                        rel="noopener noreferrer"
+                        className="social-icon linkedin"
                         variants={iconVariants}
                     >
-                        <img src="/icons8-linkedin-96.png" alt="LinkedIn" />
+                        <img src="/social/icons8-linkedin-96.png" alt="LinkedIn" />
                     </motion.a>
                     <motion.a
-                        href="https://www.instagram.com/satvik_saini26?igsh=MTVtdHF4aWJiZGgwZA%3D%3D&utm_source=qr"
+                        href="https://www.instagram.com/satvik_saini26/"
                         target="_blank"
-                        id="insta"
+                        rel="noopener noreferrer"
+                        className="social-icon instagram"
                         variants={iconVariants}
                     >
-                        <img src="/instagram.png" alt="Instagram" />
+                        <img src="/social/instagram.png" alt="Instagram" />
                     </motion.a>
                     <motion.a
                         href="https://github.com/SATVIK2610/"
-                        id="git"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="social-icon github"
                         variants={iconVariants}
                     >
-                        <img src="/git.png" alt="GitHub" />
+                        <img src="/social/github.png" alt="GitHub" />
                     </motion.a>
                 </motion.div>
             </div>

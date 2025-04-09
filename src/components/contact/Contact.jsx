@@ -116,8 +116,8 @@ const Contact = () => {
                     initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 2.5, duration: 0.5 }}>
                     <input type="text" required placeholder='Name' name="name" value={name} onChange={(e) => setName(e.target.value)}/>
                     <input type="email" required placeholder='Email' name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                    <textarea rows="8" placeholder='Message' name="message" value={message} onChange={(e) => setMessage(e.target.value)}/>
-                    <button className='submit-btn'>Submit</button>
+                    <textarea placeholder='Message' name="message" value={message} onChange={(e) => setMessage(e.target.value)}/>
+                    <button>Submit</button>
                 </motion.form>
             </div>
         </motion.div>

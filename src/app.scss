@@ -13,6 +13,36 @@ html{
 body{
     background-color: #0c0c1d;
     color: lightgray;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Fancy Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgba(12, 12, 29, 0.3); /* Lighter opacity background */
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(255, 165, 0, 0.15); /* Very light orange track */
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 165, 0, 0.5); /* Semi-transparent orange */
+    border-radius: 10px;
+    border: 2px solid rgba(12, 12, 29, 0.8);
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 165, 0, 0.7); /* Slightly more opaque on hover */
+}
+
+/* Firefox Scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 165, 0, 0.5) rgba(12, 12, 29, 0.3);
 }
 
 a{
@@ -21,22 +51,99 @@ a{
 }
 
 section{
-    height: 100vh;
+    min-height: 100vh; /* Use min-height instead of height for flexibility */
+    width: 100%;
     scroll-snap-align: center;
+    position: relative;
+}
+
+:root {
+    /* Define responsive units for common sizes */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 5rem;
+    
+    /* Font sizes */
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 3rem;
+    --font-size-4xl: 4rem;
+}
+
+/* Improved media query mixins with more breakpoints */
+@mixin mobile-small{
+    @media (max-width: 480px){
+        @content;
+    }
 }
 
 @mixin mobile{
-    @media (max-width:738px){
+    @media (max-width: 738px){
         @content;
     }
 }
+
+@mixin tablet-small{
+    @media (max-width: 860px){
+        @content;
+    }
+}
+
 @mixin tablet{
-    @media (max-width:1024px){
+    @media (max-width: 1024px){
         @content;
     }
 }
+
 @mixin desktop{
-    @media (max-width:1366){
+    @media (max-width: 1366px){
         @content;
     }
+}
+
+/* Flex utilities */
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.gap-sm {
+    gap: var(--spacing-sm);
+}
+
+.gap-md {
+    gap: var(--spacing-md);
+}
+
+.gap-lg {
+    gap: var(--spacing-lg);
+}
+
+/* Common container */
+.container {
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 0 5%; /* Add padding that scales with screen size */
 }

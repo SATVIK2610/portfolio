@@ -9,7 +9,13 @@ const skills = [
         subtitle: "Building User-Centric and Responsive Web Experiences",
         color: "#44C0F3",
         lightColor: "rgba(68, 192, 243, 0.2)",
-        icon: ["./html-logo.png", './css-logo.png', './tailwind-logo.png', './react-logo.png', './next.png']
+        icon: [
+            { path: "/tech_stack/html-logo.png", name: "HTML" },
+            { path: '/tech_stack/css-logo.png', name: "CSS" },
+            { path: '/tech_stack/tailwind-logo.png', name: "Tailwind CSS" },
+            { path: '/tech_stack/react-logo.png', name: "React" },
+            { path: '/tech_stack/next.png', name: "Next.js" }
+        ]
     },
     {
         number: "2",
@@ -17,7 +23,13 @@ const skills = [
         subtitle: "Powering Scalable Solutions and Robust Data Management",
         color: "#A66DD4",
         lightColor: "rgba(166, 109, 212, 0.2)",
-        icon: ["./nodeJs-logo.png", "./js-logo.png", './express-inv-logo.png', './mongo-logo.png', './postgresql.png']
+        icon: [
+            { path: "/tech_stack/nodeJs-logo.png", name: "Node.js" },
+            { path: "/tech_stack/js-logo.png", name: "JavaScript" },
+            { path: '/tech_stack/express-inv-logo.png', name: "Express.js" },
+            { path: '/tech_stack/mongo-logo.png', name: "MongoDB" },
+            { path: '/tech_stack/postgresql.png', name: "PostgreSQL" }
+        ]
     },
     {
         number: "3",
@@ -25,7 +37,11 @@ const skills = [
         subtitle: "Enhancing Productivity and Streamlining Development Workflows",
         color: "#6BD1BE",
         lightColor: "rgba(107, 209, 190, 0.2)",
-        icon: ['./figma-logo.png', './gitt.png', 'postman.png']
+        icon: [
+            { path: '/tech_stack/figma-logo.png', name: "Figma" },
+            { path: '/tech_stack/gitt.png', name: "Git" },
+            { path: '/tech_stack/postman.png', name: "Postman" }
+        ]
     }
 ];
 
@@ -66,25 +82,34 @@ const SkillItem = ({ number, title, subtitle, color, lightColor, icon }) => {
             animate={isInView ? "animate" : "initial"}
             variants={textVariants}
         >
-            <motion.div style={{ flex: 1 }} variants={textVariants}>
+            <motion.div className="skill-content" variants={textVariants}>
                 <motion.h2 style={{ color }} variants={textVariants}>
-                    <span
-                        className="responsive-title" // Added class for responsive styling
-                    >
-                        {title}
-                    </span>
+                    {title}
                 </motion.h2>
-                <motion.p style={{ color: "#999" }} variants={textVariants}>{subtitle}</motion.p>
+                <motion.p variants={textVariants}>{subtitle}</motion.p>
             </motion.div>
-            <motion.div style={{ display: "flex", gap: "20px", marginRight: "auto", marginTop: "15px"}} variants={textVariants}>
-                {icon.map((iconPath, index) => (
-                    <motion.img
-                        key={index}
-                        src={iconPath}
-                        alt={`${title} icon ${index + 1}`}
-                        className="skill-icon"
+            <motion.div 
+                style={{ 
+                    display: "flex", 
+                    gap: "clamp(0.25rem, 0.8vw, 0.75rem)", 
+                    flexWrap: "wrap",
+                    justifyContent: "center"
+                }} 
+                variants={textVariants}
+            >
+                {icon.map((iconItem, index) => (
+                    <motion.div 
+                        key={index} 
+                        className="tech-icon-container"
                         variants={textVariants}
-                    />
+                    >
+                        <motion.img
+                            src={iconItem.path}
+                            alt={iconItem.name}
+                            className="tech-icon"
+                        />
+                        <div className="tech-tooltip">{iconItem.name}</div>
+                    </motion.div>
                 ))}
             </motion.div>
         </motion.div>
@@ -93,6 +118,7 @@ const SkillItem = ({ number, title, subtitle, color, lightColor, icon }) => {
 
 const TechStack = () => (
     <motion.div className='stack'>
+        <h2 className="responsive-title">My Tech Stack</h2>
         {skills.map(skill => (
             <SkillItem
                 key={skill.number}

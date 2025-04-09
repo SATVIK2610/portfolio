@@ -1,254 +1,195 @@
-/* .skill-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 70px;
-    padding-right: 70px;
-    border-radius: 8px;
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-    width: 95vw;
-    height: 200px;
-    justify-content: space-between;
-}
-
-.stack {
-    background-color: #0c0c1d;
-    color: #ffffff;
-    padding: 50px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.skill-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.skill-item h2 {
-    color: inherit;
-    font-size: 24px;
-}
-
-.skill-item p {
-    color: #999;
-    font-size: 16px;
-}
-
-.skill-item img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.skill-item img:hover {
-    transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-    .stack {
-        padding: 20px;
-        height: auto;
-    }
-
-    .skill-item {
-        flex-direction: column;
-        padding: 20px;
-        height: auto;
-        width: 90vw;
-    }
-
-    .skill-item h2 {
-        font-size: 20px;
-    }
-
-    .skill-item p {
-        font-size: 14px;
-    }
-
-    .skill-item img {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-@media (max-width: 480px) {
-    .stack {
-        padding: 10px;
-    }
-
-    .skill-item {
-        flex-direction: column;
-        padding: 15px;
-        height: auto;
-        width: 90vw;
-    }
-
-    .skill-item h2 {
-        font-size: 18px;
-    }
-
-    .skill-item p {
-        font-size: 12px;
-    }
-
-    .skill-item img {
-        width: 50px;
-        height: 50px;
-    }
-} */
-
 .skill-item {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
-    padding: 10px 70px;
+    margin-bottom: 2vh;
+    padding: 1vh 5vw;
     border-radius: 8px;
     background-color: transparent;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
-    width: 95vw;
-    height: 200px;
+    width: 90%;
+    max-width: 1200px;
+    min-height: 15vh;
     justify-content: space-between;
 }
 
 .stack {
     background-color: #0c0c1d;
     color: #ffffff;
-    padding: 50px;
-    height: 100vh;
+    padding: 5vh 5vw;
+    min-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .skill-item:hover {
     background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.skill-content {
+    flex: 1;
+    padding-right: 2vw;
 }
 
 .skill-item h2 {
     color: inherit;
-    font-size: 24px;
-    text-align: left; /* Align title to the left */
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    text-align: left;
     font-weight: bold;
+    margin-bottom: 0.5vh;
 }
 
 .skill-item p {
     color: #999;
-    font-size: 16px;
-    text-align: left; /* Align subtitle to the left */
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    text-align: left;
+    line-height: 1.5;
 }
 
-.skill-item img {
-    width: 50px; /* Reduced icon size */
-    height: 50px; 
+.tech-icon-container {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+}
+
+.tech-icon {
+    width: clamp(50px, 6vw, 80px);
+    height: clamp(50px, 6vw, 80px);
     object-fit: contain;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tech-tooltip {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: linear-gradient(135deg, rgba(25, 25, 36, 0.95), rgba(12, 12, 29, 0.95));
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tech-tooltip::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: rgba(12, 12, 29, 0.95) transparent;
+}
+
+.tech-icon-container:hover .tech-icon {
+    transform: scale(1.15);
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+.tech-icon-container:hover .tech-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
 .skill-item img:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.responsive-title {
+    font-size: clamp(2rem, 5vw, 3.125rem);
+    margin-bottom: 4vh;
+    text-align: center;
+}
+
+/* Tablet responsiveness */
+@media (max-width: 1024px) {
+    .stack {
+        padding: 4vh 4vw;
+    }
+    
+    .skill-item {
+        padding: 1vh 4vw;
+        min-height: 12vh;
+    }
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+    .responsive-title {
+        margin-top: 5vh;
+        margin-bottom: 1vh;
+    }
+    
     .stack {
-        padding: 20px;
+        padding: 3vh 3vw;
         height: auto;
-        align-items: center; /* Align stack center for smaller screens */
+        align-items: center;
     }
 
     .skill-item {
         flex-direction: column;
-        padding: 15px;
-        width: 90vw; /* Reduced width for mobile */
-        height: auto; /* Allow item to adjust height as needed */
-        /* margin-top: 100px; */
+        padding: 2vh 5vw;
+        width: 90%;
+        height: auto;
+        min-height: auto;
+        margin-bottom: 3vh;
+    }
+    
+    .skill-content {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 2vh;
+        padding-right: 0;
     }
 
     .skill-item h2 {
-        font-size: 20px;
-        text-align: left; /* Keep left-alignment for mobile */
+        text-align: center;
+        margin-bottom: 1vh;
     }
 
     .skill-item p {
-        font-size: 14px;
-        text-align: left; /* Keep left-alignment for mobile */
+        text-align: center;
     }
-
-    .skill-item img {
-        width: 40px; /* Smaller icons for mobile */
-        height: 40px;
-    }
-}
-
-/* Further adjustments for very small screens (max-width: 480px) */
-@media (max-width: 480px) {
-    .stack {
-        padding: 150px;
-        margin-top: 200px;
-    }
-
-    .skill-item {
-        flex-direction: column;
-        padding: 12px;
-        width: 85vw; /* Reduced width even more */
-    }
-
-    .skill-item h2 {
-        font-size: 18px;
-    }
-
-    .skill-item p {
+    
+    .tech-tooltip {
         font-size: 12px;
+        padding: 4px 8px;
+        bottom: -25px;
     }
 }
 
-/* Responsive title font size */
-.responsive-title {
-    font-size: 50px;  /* Default font size */
-
-    /* For screens smaller than 768px (tablets and small screens) */
-    @media (max-width: 768px) {
-        font-size: 40px;  /* Adjust font size for tablets */
-    }
-
-    /* For screens smaller than 480px (mobiles) */
-    @media (max-width: 480px) {
-        font-size: 40px;  /* Adjust font size for mobile */
-    }
-}
-
-.skill-item img {
-    width: 80px; /* Default icon size */
-    height: 80px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.skill-item img:hover {
-    transform: scale(1.1) !important; /* Increase size by 10% */
-    transition: transform 0.3s ease !important;
-
-}
-
-@media (max-width: 768px) {
-    .skill-item img {
-        width: 60px; /* Icon size for tablets */
-        height: 60px;
-    }
-}
-
+/* Small mobile adjustments */
 @media (max-width: 480px) {
-    .skill-item img {
-        width: 40px; /* Icon size for mobile */
-        height: 40px;
+    .responsive-title {
+        margin-top: 5vh;
+        margin-bottom: 1vh;
+    }
+    
+    .stack {
+        padding: 2vh 2vw;
+        margin-top: 15vh;
+    }
+
+    .skill-item {
+        padding: 2vh 4vw;
+        width: 95%;
     }
 }
