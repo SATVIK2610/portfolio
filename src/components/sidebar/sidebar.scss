@@ -5,8 +5,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: white;
-    color: black;
     
     .bg{
         position: fixed;
@@ -14,43 +12,274 @@
         left: 0;
         bottom: 0;
         width: 400px;
-        background-color: white;
+        background: rgba(20, 20, 40, 0.85);
+        backdrop-filter: blur(10px);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         z-index: 999;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        &::before {
+            content: '';
+            position: fixed;
+            top: -10%;
+            left: -50%;
+            width: 100%;
+            height: 120%;
+            background: linear-gradient(45deg, 
+                rgba(131, 58, 180, 0.3) 0%, 
+                rgba(253, 29, 29, 0.05) 50%, 
+                rgba(252, 176, 69, 0.2) 100%);
+            z-index: -1;
+            animation: gradientMove 15s ease infinite alternate;
+        }
+        
+        @keyframes gradientMove {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-5%) rotate(5deg); }
+        }
+
+        .logo {
+            margin-top: 100px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 60px;
+            height: 60px;
+            
+            svg {
+                color: #ff7b54;
+                filter: drop-shadow(0 0 8px rgba(255, 123, 84, 0.5));
+            }
+            
+            @include mobile {
+                margin-top: 80px;
+                width: 50px;
+                height: 50px;
+                padding: 10px;
+            }
+        }
 
         @include mobile{
-            width: 150px;
+            width: 280px;
         }
         
         .links{
-            position: absolute;
+            position: relative;
             width: 100%;
-            height: 100%;
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            padding: 0 20px 60px;
+            gap: 40px;
         }
         
         a{
-            font-size: 40px;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            width: 80%;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            overflow: hidden;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 0;
+                background: linear-gradient(90deg, rgba(255, 123, 84, 0.2), rgba(255, 178, 107, 0.1));
+                transition: width 0.4s ease;
+                z-index: -1;
+            }
+            
+            .icon {
+                margin-right: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(135deg, #ff7b54, #ffb26b);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-size: 20px;
+                transition: transform 0.3s ease;
+            }
+            
+            .text {
+                position: relative;
+                z-index: 1;
+                transition: transform 0.3s ease;
+            }
+
+            &:hover {
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                transform: translateY(-2px);
+                
+                &::before {
+                    width: 100%;
+                }
+                
+                .icon {
+                    transform: rotate(5deg) scale(1.2);
+                }
+                
+                .text {
+                    transform: translateX(5px);
+                }
+            }
 
             @include mobile{
-                font-size: 20px;
+                font-size: 16px;
+                width: 85%;
+                padding: 10px 16px;
+                
+                .icon {
+                    margin-right: 12px;
+                    font-size: 18px;
+                }
             }
         }
     }
     
     button{
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
         position: fixed;
         top: 25px;
         left: 25px;
-        background-color: transparent;
-        border: none;
+        background: rgba(20, 20, 40, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         cursor: pointer;
         z-index: 999;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            transform: scale(1.05);
+            background: rgba(30, 30, 60, 0.8);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 
+                        0 0 10px rgba(255, 123, 84, 0.3);
+        }
+
+        svg {
+            stroke: #ff7b54;
+            filter: drop-shadow(0 0 3px rgba(255, 123, 84, 0.5));
+        }
+    }
+}
+
+/* Add media query specifically for screens 738px and below */
+@media screen and (max-width: 738px) {
+    .sidebar {
+        .bg {
+            width: 250px;
+            
+            a {
+                width: 85%;
+                padding: 10px 14px;
+                
+                .icon {
+                    margin-right: 12px;
+                }
+                
+                .text {
+                    display: inline-block; /* Ensure text is displayed */
+                    font-size: 16px;
+                    white-space: nowrap; /* Prevent text from wrapping */
+                    overflow: visible; /* Make sure text is not cut off */
+                }
+            }
+            
+            .links {
+                gap: 30px;
+            }
+        }
+    }
+}
+
+/* Add media query for mobile screens smaller than 480px */
+@media screen and (max-width: 480px) {
+    .sidebar {
+        .bg {
+            width: 100px;
+            
+            a {
+                width: 70px;
+                height: 70px;
+                padding: 0;
+                justify-content: center;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                
+                .icon {
+                    margin-right: 0;
+                    font-size: 24px;
+                }
+                
+                .text {
+                    display: none;
+                }
+                
+                &:hover {
+                    background: rgba(255, 123, 84, 0.15);
+                    transform: translateY(-3px);
+                    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+                    
+                    .icon {
+                        transform: scale(1.2);
+                    }
+                }
+                
+                &::before {
+                    display: none;
+                }
+            }
+            
+            .links {
+                gap: 30px;
+                padding-bottom: 40px;
+            }
+            
+            .logo {
+                margin-top: 80px;
+                margin-bottom: 50px;
+                width: 60px;
+                height: 60px;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                
+                svg {
+                    font-size: 26px;
+                }
+            }
+        }
     }
 }

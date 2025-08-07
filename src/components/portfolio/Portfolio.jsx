@@ -22,7 +22,7 @@ const items = [
             "/projects/ChessMate/3.png"
         ],
         desc: "ChessMate is a real-time chess platform built with React.js and Socket.IO, featuring private multiplayer rooms, AI bot gameplay with three difficulty levels, advanced chess mechanics, an in-game timer, and a move history tracker for strategic analysis.",
-        link: ""
+        link: "https://chess-mate-eight.vercel.app/"
     },
     {
         id: 3,
@@ -54,13 +54,21 @@ const ImageCarousel = ({ images }) => {
     const [currentImage, setCurrentImage] = useState(0);
     
     useEffect(() => {
-        // Change image every 2 seconds
+        // Change image every 4 seconds
         const interval = setInterval(() => {
             setCurrentImage((prev) => (prev + 1) % images.length);
         }, 4000);
         
         return () => clearInterval(interval);
     }, [images.length]);
+    
+    const goToPrevious = () => {
+        setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+    };
+    
+    const goToNext = () => {
+        setCurrentImage((prev) => (prev + 1) % images.length);
+    };
     
     return (
         <div className="carousel-container">
@@ -81,6 +89,13 @@ const ImageCarousel = ({ images }) => {
                     />
                 ))}
             </div>
+            
+            {images.length > 1 && (
+                <>
+                    <div className="carousel-arrow left" onClick={goToPrevious}></div>
+                    <div className="carousel-arrow right" onClick={goToNext}></div>
+                </>
+            )}
         </div>
     );
 };
